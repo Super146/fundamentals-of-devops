@@ -7,10 +7,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node
+      - name: Show repo files (debug)
+        run: |
+          pwd
+          ls -la
+          ls -la ch5 || true
+          ls -la ch5/sample-app || true
+
+      - name: Set up Node (debug)
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Show Node/NPM versions (debug)
+        run: |
+          which node
+          which npm
+          node -v
+          npm -v
 
       - name: Install dependencies
         working-directory: ch5/sample-app
