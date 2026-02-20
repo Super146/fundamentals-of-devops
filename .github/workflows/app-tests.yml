@@ -12,10 +12,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Clean install deps
         working-directory: ch5/sample-app
-        run: npm install
+        run: |
+          rm -rf node_modules
+          npm install
 
-      - name: Run tests
+      - name: Run tests (node)
         working-directory: ch5/sample-app
-        run: npx jest --verbose
+        run: node ./node_modules/jest/bin/jest.js --verbose
